@@ -1,0 +1,17 @@
+C:\Users\Zemfira\source\repos\IB_ThreadingPlatform\IB_ThreadingPlatform\bin\Debug\netcoreapp3.1\IB_ThreadingPlatform.exe
+C:\Users\Zemfira\source\repos\IB_ThreadingPlatform\IB_ThreadingPlatform\bin\Debug\netcoreapp3.1\IB_ThreadingPlatform.deps.json
+C:\Users\Zemfira\source\repos\IB_ThreadingPlatform\IB_ThreadingPlatform\bin\Debug\netcoreapp3.1\IB_ThreadingPlatform.runtimeconfig.json
+C:\Users\Zemfira\source\repos\IB_ThreadingPlatform\IB_ThreadingPlatform\bin\Debug\netcoreapp3.1\IB_ThreadingPlatform.runtimeconfig.dev.json
+C:\Users\Zemfira\source\repos\IB_ThreadingPlatform\IB_ThreadingPlatform\bin\Debug\netcoreapp3.1\IB_ThreadingPlatform.dll
+C:\Users\Zemfira\source\repos\IB_ThreadingPlatform\IB_ThreadingPlatform\bin\Debug\netcoreapp3.1\IB_ThreadingPlatform.pdb
+C:\Users\Zemfira\source\repos\IB_ThreadingPlatform\IB_ThreadingPlatform\bin\Debug\netcoreapp3.1\CSharpAPI.dll
+C:\Users\Zemfira\source\repos\IB_ThreadingPlatform\IB_ThreadingPlatform\obj\Debug\netcoreapp3.1\IB_ThreadingPlatform.Form1.resources
+C:\Users\Zemfira\source\repos\IB_ThreadingPlatform\IB_ThreadingPlatform\obj\Debug\netcoreapp3.1\IB_ThreadingPlatform.csproj.GenerateResource.cache
+C:\Users\Zemfira\source\repos\IB_ThreadingPlatform\IB_ThreadingPlatform\obj\Debug\netcoreapp3.1\IB_ThreadingPlatform.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Zemfira\source\repos\IB_ThreadingPlatform\IB_ThreadingPlatform\obj\Debug\netcoreapp3.1\IB_ThreadingPlatform.AssemblyInfoInputs.cache
+C:\Users\Zemfira\source\repos\IB_ThreadingPlatform\IB_ThreadingPlatform\obj\Debug\netcoreapp3.1\IB_ThreadingPlatform.AssemblyInfo.cs
+C:\Users\Zemfira\source\repos\IB_ThreadingPlatform\IB_ThreadingPlatform\obj\Debug\netcoreapp3.1\IB_ThreadingPlatform.csproj.CoreCompileInputs.cache
+C:\Users\Zemfira\source\repos\IB_ThreadingPlatform\IB_ThreadingPlatform\obj\Debug\netcoreapp3.1\IB_ThreadingPlatform.csproj.CopyComplete
+C:\Users\Zemfira\source\repos\IB_ThreadingPlatform\IB_ThreadingPlatform\obj\Debug\netcoreapp3.1\IB_ThreadingPlatform.dll
+C:\Users\Zemfira\source\repos\IB_ThreadingPlatform\IB_ThreadingPlatform\obj\Debug\netcoreapp3.1\IB_ThreadingPlatform.pdb
+C:\Users\Zemfira\source\repos\IB_ThreadingPlatform\IB_ThreadingPlatform\obj\Debug\netcoreapp3.1\IB_ThreadingPlatform.genruntimeconfig.cache
