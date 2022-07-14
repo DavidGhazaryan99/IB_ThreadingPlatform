@@ -13,6 +13,7 @@ namespace IB_ThreadingPlatform
     {
         // This will be assigned as the main form once we connect
         public Form1 myform;
+        public Form2 form2;
         //! [ewrapperimpl]
         private int nextOrderId;
         //! [socket_declare]
@@ -92,7 +93,8 @@ namespace IB_ThreadingPlatform
             string strData = "Tick Size. Ticker Id:" + tickerId +
                      ", Field: " + field + ", Size: " + size;
             //Console.WriteLine(strData);
-            myform.AddListBoxItem(strData);
+
+            //myform.AddListBoxItem(strData);
         }
         //! [ticksize]
         
@@ -226,53 +228,84 @@ namespace IB_ThreadingPlatform
             Console.WriteLine("ContractDetails begin. ReqId: " + reqId);
             printContractMsg(contractDetails.Contract);
             printContractDetailsMsg(contractDetails);
+            printBondContractDetailsMsg(contractDetails);
             Console.WriteLine("ContractDetails end. ReqId: " + reqId);
         }
         //! [contractdetails]
 
         public void printContractMsg(Contract contract)
         {
-            Console.WriteLine("\tConId: " + contract.ConId);
-            Console.WriteLine("\tSymbol: " + contract.Symbol);
-            Console.WriteLine("\tSecType: " + contract.SecType);
-            Console.WriteLine("\tLastTradeDateOrContractMonth: " + contract.LastTradeDateOrContractMonth);
-            Console.WriteLine("\tStrike: " + contract.Strike);
-            Console.WriteLine("\tRight: " + contract.Right);
-            Console.WriteLine("\tMultiplier: " + contract.Multiplier);
-            Console.WriteLine("\tExchange: " + contract.Exchange);
-            Console.WriteLine("\tPrimaryExchange: " + contract.PrimaryExch);
-            Console.WriteLine("\tCurrency: " + contract.Currency);
-            Console.WriteLine("\tLocalSymbol: " + contract.LocalSymbol);
-            Console.WriteLine("\tTradingClass: " + contract.TradingClass);
+            string strData=("\tConId: " + contract.ConId);
+            strData += ("\tSymbol: " + contract.Symbol);
+            strData += ("\tSecType: " + contract.SecType);
+            //strData += ("\tLastTradeDateOrContractMonth: " + contract.LastTradeDateOrContractMonth);
+            //strData += ("\tStrike: " + contract.Strike);
+            //strData += ("\tRight: " + contract.Right);
+            //strData += ("\tMultiplier: " + contract.Multiplier);
+            strData += ("\tExchange: " + contract.Exchange);
+            strData += ("\tPrimaryExchange: " + contract.PrimaryExch);
+            strData += ("\tCurrency: " + contract.Currency);
+            strData += ("\tLocalSymbol: " + contract.LocalSymbol);
+            //strData += ("\tTradingClass: " + contract.TradingClass);
+            myform.AddExchangeSymbolItem(contract.LocalSymbol);
+            myform.AddListBoxItem(strData);
         }
 
         public void printContractDetailsMsg(ContractDetails contractDetails)
         {
-            Console.WriteLine("\tMarketName: " + contractDetails.MarketName);
-            Console.WriteLine("\tMinTick: " + contractDetails.MinTick);
-            Console.WriteLine("\tPriceMagnifier: " + contractDetails.PriceMagnifier);
-            Console.WriteLine("\tOrderTypes: " + contractDetails.OrderTypes);
-            Console.WriteLine("\tValidExchanges: " + contractDetails.ValidExchanges);
-            Console.WriteLine("\tUnderConId: " + contractDetails.UnderConId);
-            Console.WriteLine("\tLongName: " + contractDetails.LongName);
-            Console.WriteLine("\tContractMonth: " + contractDetails.ContractMonth);
-            Console.WriteLine("\tIndystry: " + contractDetails.Industry);
-            Console.WriteLine("\tCategory: " + contractDetails.Category);
-            Console.WriteLine("\tSubCategory: " + contractDetails.Subcategory);
-            Console.WriteLine("\tTimeZoneId: " + contractDetails.TimeZoneId);
-            Console.WriteLine("\tTradingHours: " + contractDetails.TradingHours);
-            Console.WriteLine("\tLiquidHours: " + contractDetails.LiquidHours);
-            Console.WriteLine("\tEvRule: " + contractDetails.EvRule);
-            Console.WriteLine("\tEvMultiplier: " + contractDetails.EvMultiplier);
-            Console.WriteLine("\tMdSizeMultiplier: " + contractDetails.MdSizeMultiplier);
-            Console.WriteLine("\tAggGroup: " + contractDetails.AggGroup);
-            Console.WriteLine("\tUnderSymbol: " + contractDetails.UnderSymbol);
-            Console.WriteLine("\tUnderSecType: " + contractDetails.UnderSecType);
-            Console.WriteLine("\tMarketRuleIds: " + contractDetails.MarketRuleIds);
-            Console.WriteLine("\tRealExpirationDate: " + contractDetails.RealExpirationDate);
-            Console.WriteLine("\tLastTradeTime: " + contractDetails.LastTradeTime);
-            Console.WriteLine("\tStock Type: " + contractDetails.StockType);
+            string strData = ("\tMarketName: " + contractDetails.MarketName);
+            strData += ("\tMinTick: " + contractDetails.MinTick);
+            //strData += ("\tPriceMagnifier: " + contractDetails.PriceMagnifier);
+            //strData += ("\tOrderTypes: " + contractDetails.OrderTypes);
+            //strData += ("\tValidExchanges: " + contractDetails.ValidExchanges);
+            //strData += ("\tUnderConId: " + contractDetails.UnderConId);
+            //strData += ("\tLongName: " + contractDetails.LongName);
+            //strData += ("\tContractMonth: " + contractDetails.ContractMonth);
+            strData += ("\tIndystry: " + contractDetails.Industry);
+            strData += ("\tCategory: " + contractDetails.Category);
+            //strData += ("\tSubCategory: " + contractDetails.Subcategory);
+            strData += ("\tTimeZoneId: " + contractDetails.TimeZoneId);
+            strData += ("\tTradingHours: " + contractDetails.TradingHours);
+            strData += ("\tLiquidHours: " + contractDetails.LiquidHours);
+           // strData += ("\tEvRule: " + contractDetails.EvRule);
+            //strData += ("\tEvMultiplier: " + contractDetails.EvMultiplier);
+            //strData += ("\tMdSizeMultiplier: " + contractDetails.MdSizeMultiplier);
+            //strData += ("\tAggGroup: " + contractDetails.AggGroup);
+            //strData += ("\tUnderSymbol: " + contractDetails.UnderSymbol);
+            //strData += ("\tUnderSecType: " + contractDetails.UnderSecType);
+            //strData += ("\tMarketRuleIds: " + contractDetails.MarketRuleIds);
+           //strData += ("\tRealExpirationDate: " + contractDetails.RealExpirationDate);
+            strData += ("\tLastTradeTime: " + contractDetails.LastTradeTime );
+            strData += ("\tStock Type: " + contractDetails.StockType);
+            myform.AddLongName(contractDetails.LongName);
+            myform.AddListBoxItem(strData);
+            myform.AddOpen_Closing_time(contractDetails.TradingHours);
+            myform.AddNext7dayTimes(contractDetails.TradingHours);
             printContractDetailsSecIdList(contractDetails.SecIdList);
+
+            string contractDetailsView = ("\tMarketName: " + contractDetails.MarketName);
+            contractDetailsView += ("\tMinTick: " + contractDetails.MinTick);
+            contractDetailsView += ("\tPriceMagnifier: " + contractDetails.PriceMagnifier);
+            contractDetailsView += ("\tOrderTypes: " + contractDetails.OrderTypes);
+            contractDetailsView += ("\tValidExchanges: " + contractDetails.ValidExchanges);
+            contractDetailsView += ("\tUnderConId: " + contractDetails.UnderConId);
+            contractDetailsView += ("\tLongName: " + contractDetails.LongName);
+            contractDetailsView += ("\tContractMonth: " + contractDetails.ContractMonth);
+            contractDetailsView += ("\tIndystry: " + contractDetails.Industry);
+            contractDetailsView += ("\tCategory: " + contractDetails.Category);
+            contractDetailsView += ("\tSubCategory: " + contractDetails.Subcategory);
+            contractDetailsView += ("\tTimeZoneId: " + contractDetails.TimeZoneId);
+            contractDetailsView += ("\tTradingHours: " + contractDetails.TradingHours);
+            contractDetailsView += ("\tLiquidHours: " + contractDetails.LiquidHours);
+            contractDetailsView += ("\tEvRule: " + contractDetails.EvRule);
+            contractDetailsView += ("\tEvMultiplier: " + contractDetails.EvMultiplier);
+            contractDetailsView += ("\tMdSizeMultiplier: " + contractDetails.MdSizeMultiplier);
+            contractDetailsView += ("\tAggGroup: " + contractDetails.AggGroup);
+            contractDetailsView += ("\tUnderSymbol: " + contractDetails.UnderSymbol);
+            contractDetailsView += ("\tUnderSecType: " + contractDetails.UnderSecType);
+            contractDetailsView += ("\tMarketRuleIds: " + contractDetails.MarketRuleIds);
+            contractDetailsView += ("\tRealExpirationDate: " + contractDetails.RealExpirationDate);
+            form2.ViewContractDetalis(contractDetailsView);
         }
 
         public void printContractDetailsSecIdList(List<TagValue> secIdList)
@@ -329,42 +362,47 @@ namespace IB_ThreadingPlatform
         //! [contractdetailsend]
         public virtual void contractDetailsEnd(int reqId)
         {
-            Console.WriteLine("ContractDetailsEnd. "+reqId+"\n");
+            string strData = ("ContractDetailsEnd. "+reqId+"\n");
+            //myform.AddListBoxItem(strData);
         }
         //! [contractdetailsend]
 
         //! [execdetails]
         public virtual void execDetails(int reqId, Contract contract, Execution execution)
         {
-            Console.WriteLine("ExecDetails. "+reqId+" - "+contract.Symbol+", "+contract.SecType+", "+contract.Currency+" - "+execution.ExecId+", "+execution.OrderId+", "+execution.Shares + ", " + execution.LastLiquidity);
+            string strData = ("ExecDetails. " +reqId+" - "+contract.Symbol+", "+contract.SecType+", "+contract.Currency+" - "+execution.ExecId+", "+execution.OrderId+", "+execution.Shares + ", " + execution.LastLiquidity);
+            //myform.AddListBoxItem(strData);
         }
         //! [execdetails]
 
         //! [execdetailsend]
         public virtual void execDetailsEnd(int reqId)
         {
-            Console.WriteLine("ExecDetailsEnd. "+reqId+"\n");
+            string strData = ("ExecDetailsEnd. "+reqId+"\n");
+            //myform.AddListBoxItem(strData);
         }
         //! [execdetailsend]
 
         //! [commissionreport]
         public virtual void commissionReport(CommissionReport commissionReport)
         {
-            Console.WriteLine("CommissionReport. "+commissionReport.ExecId+" - "+commissionReport.Commission+" "+commissionReport.Currency+" RPNL "+commissionReport.RealizedPNL);
+            string strData = ("CommissionReport. "+commissionReport.ExecId+" - "+commissionReport.Commission+" "+commissionReport.Currency+" RPNL "+commissionReport.RealizedPNL);
+            //myform.AddListBoxItem(strData);
         }
         //! [commissionreport]
 
         //! [fundamentaldata]
         public virtual void fundamentalData(int reqId, string data)
         {
-            Console.WriteLine("FundamentalData. " + reqId + "" + data+"\n");
+            string strData = ("FundamentalData. " + reqId + "" + data+"\n");
+            //myform.AddListBoxItem(strData);
         }
         //! [fundamentaldata]
 
         //! [historicaldata]
         public virtual void historicalData(int reqId, Bar bar)
         {
-            Console.WriteLine("HistoricalData. " + reqId + " - Time: " + bar.Time + ", Open: " + bar.Open + ", High: " + bar.High + ", Low: " + bar.Low + ", Close: " + bar.Close + ", Volume: " + bar.Volume + ", Count: " + bar.Count + ", WAP: " + bar.WAP);
+            //myform.AddListBoxItem(("HistoricalData. " + reqId + " - Time: " + bar.Time + ", Open: " + bar.Open + ", High: " + bar.High + ", Low: " + bar.Low + ", Close: " + bar.Close + ", Volume: " + bar.Volume + ", Count: " + bar.Count + ", WAP: " + bar.WAP));
         }
         //! [historicaldata]
 
@@ -392,7 +430,7 @@ namespace IB_ThreadingPlatform
         //! [updatenewsbulletin]
         public virtual void updateNewsBulletin(int msgId, int msgType, String message, String origExchange)
         {
-            Console.WriteLine("News Bulletins. "+msgId+" - Type: "+msgType+", Message: "+message+", Exchange of Origin: "+origExchange+"\n");
+            //myform.AddListBoxItem(("News Bulletins. "+msgId+" - Type: "+msgType+", Message: "+message+", Exchange of Origin: "+origExchange+"\n"));
         }
         //! [updatenewsbulletin]
 
@@ -413,7 +451,7 @@ namespace IB_ThreadingPlatform
         //! [realtimebar]
         public virtual void realtimeBar(int reqId, long time, double open, double high, double low, double close, long volume, double WAP, int count)
         {
-            Console.WriteLine("RealTimeBars. " + reqId + " - Time: " + time + ", Open: " + open + ", High: " + high + ", Low: " + low + ", Close: " + close + ", Volume: " + volume + ", Count: " + count + ", WAP: " + WAP);
+           // myform.AddListBoxItem(("RealTimeBars. " + reqId + " - Time: " + time + ", Open: " + open + ", High: " + high + ", Low: " + low + ", Close: " + close + ", Volume: " + volume + ", Count: " + count + ", WAP: " + WAP));
         }
         //! [realtimebar]
 
@@ -448,21 +486,21 @@ namespace IB_ThreadingPlatform
 
         public virtual void bondContractDetails(int requestId, ContractDetails contractDetails)
         {
-            Console.WriteLine("BondContractDetails begin. ReqId: " + requestId);
+            //myform.AddListBoxItem(("BondContractDetails begin. ReqId: " + requestId));
             printBondContractDetailsMsg(contractDetails);
-            Console.WriteLine("BondContractDetails end. ReqId: " + requestId);
+            //myform.AddListBoxItem(("BondContractDetails end. ReqId: " + requestId));
         }
 
         //! [historicaldataend]
         public virtual void historicalDataEnd(int reqId, string startDate, string endDate)
         {
-            Console.WriteLine("HistoricalDataEnd - "+reqId+" from "+startDate+" to "+endDate);
+            //myform.AddListBoxItem(("HistoricalDataEnd - "+reqId+" from "+startDate+" to "+endDate));
         }
         //! [historicaldataend]
 
         public virtual void verifyMessageAPI(string apiData)
         {
-            Console.WriteLine("verifyMessageAPI: " + apiData);
+            //myform.AddListBoxItem(("verifyMessageAPI: " + apiData));
         }
         public virtual void verifyCompleted(bool isSuccessful, string errorText)
         {
@@ -474,7 +512,7 @@ namespace IB_ThreadingPlatform
         }
         public virtual void verifyAndAuthCompleted(bool isSuccessful, string errorText)
         {
-            Console.WriteLine("verifyAndAuthCompleted. IsSuccessful: " + isSuccessful + " - Error: " + errorText);
+            //myform.AddListBoxItem(("verifyAndAuthCompleted. IsSuccessful: " + isSuccessful + " - Error: " + errorText));
         }
         //! [displaygrouplist]
         public virtual void displayGroupList(int reqId, string groups)

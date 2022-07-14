@@ -40,7 +40,8 @@ namespace IB_ThreadingPlatform
 
             var reader = new EReader(ibClient.ClientSocket, ibClient.Signal);
             reader.Start();
-            new Thread(() => {
+            new Thread(() =>
+            {
                 while (ibClient.ClientSocket.IsConnected())
                 {
                     ibClient.Signal.waitForSignal();
@@ -53,6 +54,7 @@ namespace IB_ThreadingPlatform
             while (ibClient.NextOrderId <= 0) { }
             // Set up the form object in the EWrapper
             ibClient.myform = (Form1)Application.OpenForms[0];
+
 
         }
 
@@ -77,7 +79,7 @@ namespace IB_ThreadingPlatform
             contract.Exchange = "SMART";
             // Set the primary exchange (sometimes called Listing exchange)
             // Use either NYSE or ISLAND
-            contract.PrimaryExch = "ISLAND";
+            contract.PrimaryExch = "NASDAQ";
             // Set the currency to USD
             contract.Currency = "USD";
 
@@ -86,9 +88,38 @@ namespace IB_ThreadingPlatform
             ibClient.ClientSocket.reqMarketDataType(3);
 
             // Kick off the subscription for real-time data (add the mktDataOptions list for API v9.71)
-            ibClient.ClientSocket.reqMktData(1, contract, "",false, false, mktDataOptions);
+            ibClient.ClientSocket.reqMktData(1, contract, "", false, false, mktDataOptions);
             // For API v9.72 and higher, add one more parameter for regulatory snapshot
             // ibClient.ClientSocket.reqMktData(1, contract, "", false, false, mktDataOptions);
+            ibClient.ClientSocket.reqContractDetails(1, contract);
+
+
+
+            //IBApi.Contract contract2 = new IBApi.Contract();
+            //// Create a new TagValueList object (for API version 9.71 and later) 
+            //List<IBApi.TagValue> mktDataOptions2 = new List<IBApi.TagValue>();
+
+            //// Set the underlying stock symbol from the tbSymbol text box
+            //contract.Symbol = textBox3.Text;
+            //// Set the Security type to STK for a Stock
+            //contract.SecType = "STK";
+            //// Use "SMART" as the general exchange
+            //contract.Exchange = "SMART";
+            //// Set the primary exchange (sometimes called Listing exchange)
+            //// Use either NYSE or ISLAND
+            //contract.PrimaryExch = "NASDAQ";
+            //// Set the currency to USD
+            //contract.Currency = "USD";
+
+            //// If using delayed market data subscription un-comment 
+            //// the line below to request delayed data
+            //ibClient.ClientSocket.reqMarketDataType(3);
+
+            //// Kick off the subscription for real-time data (add the mktDataOptions list for API v9.71)
+            //ibClient.ClientSocket.reqMktData(1, contract, "", false, false, mktDataOptions2);
+            //// For API v9.72 and higher, add one more parameter for regulatory snapshot
+            //// ibClient.ClientSocket.reqMktData(1, contract, "", false, false, mktDataOptions);
+            //ibClient.ClientSocket.reqContractDetails(1, contract);
 
         }
 
@@ -115,6 +146,73 @@ namespace IB_ThreadingPlatform
                 // Add the text string to the list box
                 this.lbData.Items.Add(text);
             }
+        }
+        public void AddExchangeSymbolItem(string text)
+        {
+            if (this.lbData.InvokeRequired)
+            {
+                SetTextCallback d = new SetTextCallback(AddExchangeSymbolItem);
+                this.Invoke(d, new object[] { text });
+            }
+            else
+            {
+                this.ExchangeSymbol.AppendText(text);
+            }
+        }
+        public void AddOpen_Closing_time(string text)
+        {
+            if (this.lbData.InvokeRequired)
+            {
+                SetTextCallback d = new SetTextCallback(AddOpen_Closing_time);
+                this.Invoke(d, new object[] { text });
+            }
+            else
+            {
+                this.Open_Closing_time.AppendText(text.Substring(0, 27));
+            }
+        }
+
+        public void AddNext7dayTimes(string text)
+        {
+            if (this.lbData.InvokeRequired)
+            {
+                SetTextCallback d = new SetTextCallback(AddNext7dayTimes);
+                this.Invoke(d, new object[] { text });
+            }
+            else
+            {
+                string[] daysList = text.Split(";");
+                for (int i = 0; i < daysList.Length; i++)
+                {
+                    this.listBox7.Items.Add(i + ". " + daysList[i]);
+                }
+            }
+        }
+
+        public void AddLongName(string text)
+        {
+            if (this.lbData.InvokeRequired)
+            {
+                SetTextCallback d = new SetTextCallback(AddLongName);
+                this.Invoke(d, new object[] { text });
+            }
+            else
+            {
+                this.ExchangeSymbol.AppendText(text);
+            }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Form form = new Form();
+            form.Show();
+        }
+
+        private void ExchangeSymbol_TextChanged(object sender, EventArgs e)
+        {
+            Form form = new Form();
+
+            form.Show();
         }
     }
 }
