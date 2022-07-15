@@ -33,4 +33,3 @@ C:\Users\Zemfira\Documents\GitHub\IB_ThreadingPlatform\IB_ThreadingPlatform\IB_T
 C:\Users\Zemfira\Documents\GitHub\IB_ThreadingPlatform\IB_ThreadingPlatform\IB_ThreadingPlatform\obj\Debug\netcoreapp3.1\IB_ThreadingPlatform.dll
 C:\Users\Zemfira\Documents\GitHub\IB_ThreadingPlatform\IB_ThreadingPlatform\IB_ThreadingPlatform\obj\Debug\netcoreapp3.1\IB_ThreadingPlatform.pdb
 C:\Users\Zemfira\Documents\GitHub\IB_ThreadingPlatform\IB_ThreadingPlatform\IB_ThreadingPlatform\obj\Debug\netcoreapp3.1\IB_ThreadingPlatform.genruntimeconfig.cache
-C:\Users\Zemfira\Documents\GitHub\IB_ThreadingPlatform\IB_ThreadingPlatform\IB_ThreadingPlatform\obj\Debug\netcoreapp3.1\IB_ThreadingPlatform.Form2.resources

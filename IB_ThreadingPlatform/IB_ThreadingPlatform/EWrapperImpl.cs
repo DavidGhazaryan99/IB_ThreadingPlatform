@@ -13,7 +13,6 @@ namespace IB_ThreadingPlatform
     {
         // This will be assigned as the main form once we connect
         public Form1 myform;
-        public Form2 form2;
         //! [ewrapperimpl]
         private int nextOrderId;
         //! [socket_declare]
@@ -82,7 +81,7 @@ namespace IB_ThreadingPlatform
             // Write this string to the console
             //Console.WriteLine(strData);
             // Add this tick price to the form by calling the AddListBoxItem delegate
-            myform.AddListBoxItem(strData);
+           // myform.AddListBoxItem(strData);
         }
         //! [tickprice]
         
@@ -247,8 +246,8 @@ namespace IB_ThreadingPlatform
             strData += ("\tCurrency: " + contract.Currency);
             strData += ("\tLocalSymbol: " + contract.LocalSymbol);
             //strData += ("\tTradingClass: " + contract.TradingClass);
-            myform.AddExchangeSymbolItem(contract.LocalSymbol);
-            myform.AddListBoxItem(strData);
+            //myform.AddExchangeSymbolItem(contract.LocalSymbol);
+            //myform.AddListBoxItem(strData);
         }
 
         public void printContractDetailsMsg(ContractDetails contractDetails)
@@ -278,7 +277,7 @@ namespace IB_ThreadingPlatform
             strData += ("\tLastTradeTime: " + contractDetails.LastTradeTime );
             strData += ("\tStock Type: " + contractDetails.StockType);
             myform.AddLongName(contractDetails.LongName);
-            myform.AddListBoxItem(strData);
+            //myform.AddListBoxItem(strData);
             myform.AddOpen_Closing_time(contractDetails.TradingHours);
             myform.AddNext7dayTimes(contractDetails.TradingHours);
             printContractDetailsSecIdList(contractDetails.SecIdList);
@@ -305,7 +304,7 @@ namespace IB_ThreadingPlatform
             contractDetailsView += ("\tUnderSecType: " + contractDetails.UnderSecType);
             contractDetailsView += ("\tMarketRuleIds: " + contractDetails.MarketRuleIds);
             contractDetailsView += ("\tRealExpirationDate: " + contractDetails.RealExpirationDate);
-            form2.ViewContractDetalis(contractDetailsView);
+            //form2.ViewContractDetalis(contractDetailsView);
         }
 
         public void printContractDetailsSecIdList(List<TagValue> secIdList)
