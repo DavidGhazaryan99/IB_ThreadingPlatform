@@ -281,7 +281,6 @@ namespace IB_ThreadingPlatform
             myform.AddOpen_Closing_time(contractDetails.TradingHours);
             myform.AddNext7dayTimes(contractDetails.TradingHours);
             printContractDetailsSecIdList(contractDetails.SecIdList);
-
             string contractDetailsView = ("\tMarketName: " + contractDetails.MarketName);
             contractDetailsView += ("\tMinTick: " + contractDetails.MinTick);
             contractDetailsView += ("\tPriceMagnifier: " + contractDetails.PriceMagnifier);

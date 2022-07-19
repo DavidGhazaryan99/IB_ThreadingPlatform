@@ -70,7 +70,7 @@ namespace IB_ThreadingPlatform
             this.ExchangeName1 = new System.Windows.Forms.TextBox();
             this.btnUpdate = new System.Windows.Forms.Button();
             this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.ToCloseTextBox1 = new System.Windows.Forms.TextBox();
             this.Open_Closing_time7 = new System.Windows.Forms.TextBox();
             this.Open_Closing_time6 = new System.Windows.Forms.TextBox();
             this.Open_Closing_time5 = new System.Windows.Forms.TextBox();
@@ -83,19 +83,20 @@ namespace IB_ThreadingPlatform
             this.textBox8 = new System.Windows.Forms.TextBox();
             this.textBox9 = new System.Windows.Forms.TextBox();
             this.textBox10 = new System.Windows.Forms.TextBox();
-            this.textBox11 = new System.Windows.Forms.TextBox();
-            this.textBox12 = new System.Windows.Forms.TextBox();
-            this.textBox13 = new System.Windows.Forms.TextBox();
-            this.textBox14 = new System.Windows.Forms.TextBox();
-            this.textBox15 = new System.Windows.Forms.TextBox();
-            this.textBox16 = new System.Windows.Forms.TextBox();
-            this.textBox17 = new System.Windows.Forms.TextBox();
+            this.ToCloseTextBox7 = new System.Windows.Forms.TextBox();
+            this.ToCloseTextBox6 = new System.Windows.Forms.TextBox();
+            this.ToCloseTextBox5 = new System.Windows.Forms.TextBox();
+            this.ToCloseTextBox4 = new System.Windows.Forms.TextBox();
+            this.ToCloseTextBox3 = new System.Windows.Forms.TextBox();
+            this.ToCloseTextBox2 = new System.Windows.Forms.TextBox();
+            this.textbox = new System.Windows.Forms.TextBox();
             this.textBox18 = new System.Windows.Forms.TextBox();
             this.textBox19 = new System.Windows.Forms.TextBox();
             this.textBox20 = new System.Windows.Forms.TextBox();
             this.textBox21 = new System.Windows.Forms.TextBox();
             this.textBox22 = new System.Windows.Forms.TextBox();
             this.textBox23 = new System.Windows.Forms.TextBox();
+            this.UtcNow = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // btnConnect
@@ -150,7 +151,7 @@ namespace IB_ThreadingPlatform
             this.ExchangeSymbol1.ReadOnly = true;
             this.ExchangeSymbol1.Size = new System.Drawing.Size(187, 23);
             this.ExchangeSymbol1.TabIndex = 8;
-            this.ExchangeSymbol1.Text = "MSFT";
+            this.ExchangeSymbol1.Text = "MSFt";
             // 
             // textBox1
             // 
@@ -170,7 +171,7 @@ namespace IB_ThreadingPlatform
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(635, 13);
+            this.button1.Location = new System.Drawing.Point(753, 11);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(113, 23);
             this.button1.TabIndex = 11;
@@ -185,7 +186,7 @@ namespace IB_ThreadingPlatform
             this.ExchangeSymbol2.ReadOnly = true;
             this.ExchangeSymbol2.Size = new System.Drawing.Size(187, 23);
             this.ExchangeSymbol2.TabIndex = 12;
-            this.ExchangeSymbol2.Text = "AAPL";
+            this.ExchangeSymbol2.Text = "AAPl";
             // 
             // ExchangeName3
             // 
@@ -405,7 +406,6 @@ namespace IB_ThreadingPlatform
             this.Timer1.ReadOnly = true;
             this.Timer1.Size = new System.Drawing.Size(187, 23);
             this.Timer1.TabIndex = 44;
-            this.Timer1.Text = "Countdown time to opening/closing s";
             // 
             // Timer7
             // 
@@ -466,13 +466,13 @@ namespace IB_ThreadingPlatform
             this.textBox3.TabIndex = 51;
             this.textBox3.Text = "To Close Timer";
             // 
-            // textBox4
+            // ToCloseTextBox1
             // 
-            this.textBox4.Location = new System.Drawing.Point(0, 289);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.ReadOnly = true;
-            this.textBox4.Size = new System.Drawing.Size(187, 23);
-            this.textBox4.TabIndex = 52;
+            this.ToCloseTextBox1.Location = new System.Drawing.Point(0, 289);
+            this.ToCloseTextBox1.Name = "ToCloseTextBox1";
+            this.ToCloseTextBox1.ReadOnly = true;
+            this.ToCloseTextBox1.Size = new System.Drawing.Size(187, 23);
+            this.ToCloseTextBox1.TabIndex = 52;
             // 
             // Open_Closing_time7
             // 
@@ -576,61 +576,62 @@ namespace IB_ThreadingPlatform
             this.textBox10.TabIndex = 58;
             this.textBox10.Text = "To Close Timer";
             // 
-            // textBox11
+            // ToCloseTextBox7
             // 
-            this.textBox11.Location = new System.Drawing.Point(1158, 287);
-            this.textBox11.Name = "textBox11";
-            this.textBox11.ReadOnly = true;
-            this.textBox11.Size = new System.Drawing.Size(187, 23);
-            this.textBox11.TabIndex = 59;
+            this.ToCloseTextBox7.Location = new System.Drawing.Point(1158, 287);
+            this.ToCloseTextBox7.Name = "ToCloseTextBox7";
+            this.ToCloseTextBox7.ReadOnly = true;
+            this.ToCloseTextBox7.Size = new System.Drawing.Size(187, 23);
+            this.ToCloseTextBox7.TabIndex = 59;
             // 
-            // textBox12
+            // ToCloseTextBox6
             // 
-            this.textBox12.Location = new System.Drawing.Point(965, 287);
-            this.textBox12.Name = "textBox12";
-            this.textBox12.ReadOnly = true;
-            this.textBox12.Size = new System.Drawing.Size(187, 23);
-            this.textBox12.TabIndex = 60;
+            this.ToCloseTextBox6.Location = new System.Drawing.Point(965, 287);
+            this.ToCloseTextBox6.Name = "ToCloseTextBox6";
+            this.ToCloseTextBox6.ReadOnly = true;
+            this.ToCloseTextBox6.Size = new System.Drawing.Size(187, 23);
+            this.ToCloseTextBox6.TabIndex = 60;
             // 
-            // textBox13
+            // ToCloseTextBox5
             // 
-            this.textBox13.Location = new System.Drawing.Point(772, 287);
-            this.textBox13.Name = "textBox13";
-            this.textBox13.ReadOnly = true;
-            this.textBox13.Size = new System.Drawing.Size(187, 23);
-            this.textBox13.TabIndex = 61;
+            this.ToCloseTextBox5.Location = new System.Drawing.Point(772, 287);
+            this.ToCloseTextBox5.Name = "ToCloseTextBox5";
+            this.ToCloseTextBox5.ReadOnly = true;
+            this.ToCloseTextBox5.Size = new System.Drawing.Size(187, 23);
+            this.ToCloseTextBox5.TabIndex = 61;
             // 
-            // textBox14
+            // ToCloseTextBox4
             // 
-            this.textBox14.Location = new System.Drawing.Point(579, 288);
-            this.textBox14.Name = "textBox14";
-            this.textBox14.ReadOnly = true;
-            this.textBox14.Size = new System.Drawing.Size(187, 23);
-            this.textBox14.TabIndex = 62;
+            this.ToCloseTextBox4.Location = new System.Drawing.Point(579, 288);
+            this.ToCloseTextBox4.Name = "ToCloseTextBox4";
+            this.ToCloseTextBox4.ReadOnly = true;
+            this.ToCloseTextBox4.Size = new System.Drawing.Size(187, 23);
+            this.ToCloseTextBox4.TabIndex = 62;
             // 
-            // textBox15
+            // ToCloseTextBox3
             // 
-            this.textBox15.Location = new System.Drawing.Point(386, 289);
-            this.textBox15.Name = "textBox15";
-            this.textBox15.ReadOnly = true;
-            this.textBox15.Size = new System.Drawing.Size(187, 23);
-            this.textBox15.TabIndex = 63;
+            this.ToCloseTextBox3.Location = new System.Drawing.Point(386, 289);
+            this.ToCloseTextBox3.Name = "ToCloseTextBox3";
+            this.ToCloseTextBox3.ReadOnly = true;
+            this.ToCloseTextBox3.Size = new System.Drawing.Size(187, 23);
+            this.ToCloseTextBox3.TabIndex = 63;
             // 
-            // textBox16
+            // ToCloseTextBox2
             // 
-            this.textBox16.Location = new System.Drawing.Point(193, 287);
-            this.textBox16.Name = "textBox16";
-            this.textBox16.ReadOnly = true;
-            this.textBox16.Size = new System.Drawing.Size(187, 23);
-            this.textBox16.TabIndex = 64;
+            this.ToCloseTextBox2.Location = new System.Drawing.Point(193, 287);
+            this.ToCloseTextBox2.Name = "ToCloseTextBox2";
+            this.ToCloseTextBox2.ReadOnly = true;
+            this.ToCloseTextBox2.Size = new System.Drawing.Size(187, 23);
+            this.ToCloseTextBox2.TabIndex = 64;
             // 
-            // textBox17
+            // textbox
             // 
-            this.textBox17.Location = new System.Drawing.Point(0, 200);
-            this.textBox17.Name = "textBox17";
-            this.textBox17.ReadOnly = true;
-            this.textBox17.Size = new System.Drawing.Size(187, 23);
-            this.textBox17.TabIndex = 65;
+            this.textbox.Location = new System.Drawing.Point(0, 200);
+            this.textbox.Name = "textbox";
+            this.textbox.ReadOnly = true;
+            this.textbox.Size = new System.Drawing.Size(187, 23);
+            this.textbox.TabIndex = 65;
+            this.textbox.Text = "To Open Timer";
             // 
             // textBox18
             // 
@@ -680,31 +681,40 @@ namespace IB_ThreadingPlatform
             this.textBox23.Size = new System.Drawing.Size(187, 23);
             this.textBox23.TabIndex = 71;
             // 
+            // UtcNow
+            // 
+            this.UtcNow.Location = new System.Drawing.Point(579, 64);
+            this.UtcNow.Name = "UtcNow";
+            this.UtcNow.Size = new System.Drawing.Size(269, 23);
+            this.UtcNow.TabIndex = 72;
+            this.UtcNow.Text = "UtcNow - ";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1347, 505);
+            this.Controls.Add(this.UtcNow);
             this.Controls.Add(this.textBox23);
             this.Controls.Add(this.textBox22);
             this.Controls.Add(this.textBox21);
             this.Controls.Add(this.textBox20);
             this.Controls.Add(this.textBox19);
             this.Controls.Add(this.textBox18);
-            this.Controls.Add(this.textBox17);
-            this.Controls.Add(this.textBox16);
-            this.Controls.Add(this.textBox15);
-            this.Controls.Add(this.textBox14);
-            this.Controls.Add(this.textBox13);
-            this.Controls.Add(this.textBox12);
-            this.Controls.Add(this.textBox11);
+            this.Controls.Add(this.textbox);
+            this.Controls.Add(this.ToCloseTextBox2);
+            this.Controls.Add(this.ToCloseTextBox3);
+            this.Controls.Add(this.ToCloseTextBox4);
+            this.Controls.Add(this.ToCloseTextBox5);
+            this.Controls.Add(this.ToCloseTextBox6);
+            this.Controls.Add(this.ToCloseTextBox7);
             this.Controls.Add(this.textBox10);
             this.Controls.Add(this.textBox9);
             this.Controls.Add(this.textBox8);
             this.Controls.Add(this.textBox7);
             this.Controls.Add(this.textBox6);
             this.Controls.Add(this.textBox5);
-            this.Controls.Add(this.textBox4);
+            this.Controls.Add(this.ToCloseTextBox1);
             this.Controls.Add(this.textBox3);
             this.Controls.Add(this.btnUpdate);
             this.Controls.Add(this.ExchangeName1);
@@ -750,6 +760,7 @@ namespace IB_ThreadingPlatform
             this.Controls.Add(this.btnStart);
             this.Controls.Add(this.btnDisconnect);
             this.Controls.Add(this.btnConnect);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Name = "Form1";
             this.Text = "Form1";
             this.ResumeLayout(false);
@@ -799,7 +810,7 @@ namespace IB_ThreadingPlatform
         private System.Windows.Forms.TextBox ExchangeName1;
         private System.Windows.Forms.Button btnUpdate;
         private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox ToCloseTextBox1;
         private System.Windows.Forms.TextBox Open_Closing_time7;
         private System.Windows.Forms.TextBox Open_Closing_time6;
         private System.Windows.Forms.TextBox Open_Closing_time5;
@@ -812,19 +823,20 @@ namespace IB_ThreadingPlatform
         private System.Windows.Forms.TextBox textBox8;
         private System.Windows.Forms.TextBox textBox9;
         private System.Windows.Forms.TextBox textBox10;
-        private System.Windows.Forms.TextBox textBox11;
-        private System.Windows.Forms.TextBox textBox12;
-        private System.Windows.Forms.TextBox textBox13;
-        private System.Windows.Forms.TextBox textBox14;
-        private System.Windows.Forms.TextBox textBox15;
-        private System.Windows.Forms.TextBox textBox16;
-        private System.Windows.Forms.TextBox textBox17;
+        private System.Windows.Forms.TextBox ToCloseTextBox7;
+        private System.Windows.Forms.TextBox ToCloseTextBox6;
+        private System.Windows.Forms.TextBox ToCloseTextBox5;
+        private System.Windows.Forms.TextBox ToCloseTextBox4;
+        private System.Windows.Forms.TextBox ToCloseTextBox3;
+        private System.Windows.Forms.TextBox ToCloseTextBox2;
+        private System.Windows.Forms.TextBox textbox;
         private System.Windows.Forms.TextBox textBox18;
         private System.Windows.Forms.TextBox textBox19;
         private System.Windows.Forms.TextBox textBox20;
         private System.Windows.Forms.TextBox textBox21;
         private System.Windows.Forms.TextBox textBox22;
         private System.Windows.Forms.TextBox textBox23;
+        private System.Windows.Forms.TextBox UtcNow;
     }
 }
 

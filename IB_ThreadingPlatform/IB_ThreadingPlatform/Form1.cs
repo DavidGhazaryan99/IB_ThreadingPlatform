@@ -21,9 +21,9 @@ namespace IB_ThreadingPlatform
         List<TextBox> ExchangeNames = new List<TextBox>();
         List<TextBox> Open_Closing_Times = new List<TextBox>();
         List<ListBox> NextDayDateTimes = new List<ListBox>();
-        DateTime timeToOpen;
-        DateTime timeToClosed;
-        bool dayCheking = false;
+        List<TextBox> ToCloseTextBox = new List<TextBox>();
+        List<DateTime> timesToOpen = new List<DateTime>();
+        List<DateTime> timesToClosed = new List<DateTime>();
 
         delegate void SetTextCallback(string text);
 
@@ -43,6 +43,8 @@ namespace IB_ThreadingPlatform
             // clientId   - The identifier of the client application
             ibClient.ClientSocket.eConnect("127.0.0.1", 7496, 0);
 
+
+            UtcNow.AppendText(DateTime.UtcNow.ToShortTimeString());
             // For IB TWS API version 9.72 and higher, implement this
             // signal-handling code. Otherwise comment it out.
 
@@ -85,6 +87,7 @@ namespace IB_ThreadingPlatform
             GetAllTextBoxExchangeName();
             GetAllListBoxNextDayDateTimes();
             GetAllTextBoxOpenClosing();
+            GetAllToCloseTextBox();
             contract1.ComboLegsDescription = "1";
 
             // If using delayed market data subscription un-comment 
@@ -165,29 +168,29 @@ namespace IB_ThreadingPlatform
         //}
         public void AddOpen_Closing_time(string text)
         {
-            var st = chekingOpenTime(text);
-            if (text.Substring(8, 6) != "CLOSED")
-            {
-                timeToOpen = new DateTime(
-                   Convert.ToInt32(text.Substring(0, 4)),
-                   Convert.ToInt32(text.Substring(4, 2)),
-                   Convert.ToInt32(text.Substring(6, 2)),
-                   Convert.ToInt32(text.Substring(9, 2)),
-                   Convert.ToInt32(text.Substring(11, 2)),
-                   0
-                   );
-                timeToClosed = new DateTime(
-                   Convert.ToInt32(text.Substring(14, 4)),
-                   Convert.ToInt32(text.Substring(18, 2)),
-                   Convert.ToInt32(text.Substring(20, 2)),
-                   Convert.ToInt32(text.Substring(23, 2)),
-                   Convert.ToInt32(text.Substring(25, 2)),
-                   0
-                   );
-            }
 
             if (this.lbData.InvokeRequired)
             {
+                var st = chekingOpenTime(text);
+                for (int i = 0; i < st.Count; i++)
+                {
+                    DateTime openTime = stringConvertToOpenDateTime(st[i]);
+                    if (openTime > DateTime.UtcNow)
+                    {
+                        timesToOpen.Add(openTime);
+                        break;
+                    }
+                }
+
+                for (int i = 0; i < st.Count; i++)
+                {
+                    DateTime closedTime = stringConvertToClosedDateTime(st[i]);
+                    if (closedTime > DateTime.UtcNow)
+                    {
+                        timesToClosed.Add(closedTime);
+                        break;
+                    }
+                }
                 SetTextCallback d = new SetTextCallback(AddOpen_Closing_time);
                 this.Invoke(d, new object[] { text });
             }
@@ -197,11 +200,35 @@ namespace IB_ThreadingPlatform
                 {
                     if (item.Text == "")
                     {
-                        item.AppendText(text.Substring(0, 27));
+                        item.AppendText(stringConvertToOpenDateTime(text.Substring(0, 27)).ToShortTimeString() + " - " + stringConvertToClosedDateTime(text.Substring(0, 27)).ToShortTimeString());
                         break;
                     }
                 }
             }
+        }
+        public DateTime stringConvertToOpenDateTime(string text)
+        {
+            DateTime dateTime = new DateTime(
+               Convert.ToInt32(text.Substring(0, 4)),
+               Convert.ToInt32(text.Substring(4, 2)),
+               Convert.ToInt32(text.Substring(6, 2)),
+               Convert.ToInt32(text.Substring(9, 2)),
+               Convert.ToInt32(text.Substring(11, 2)),
+               0
+               );
+            return dateTime;
+        }
+        public DateTime stringConvertToClosedDateTime(string text)
+        {
+            DateTime dateTime = new DateTime(
+               Convert.ToInt32(text.Substring(14, 4)),
+               Convert.ToInt32(text.Substring(18, 2)),
+               Convert.ToInt32(text.Substring(20, 2)),
+               Convert.ToInt32(text.Substring(23, 2)),
+               Convert.ToInt32(text.Substring(25, 2)),
+               0
+               );
+            return dateTime;
         }
 
         public List<string> chekingOpenTime(string text)
@@ -297,37 +324,68 @@ namespace IB_ThreadingPlatform
             NextDayDateTimes.Add(NextDayDateTime6);
             NextDayDateTimes.Add(NextDayDateTime7);
         }
+        public void GetAllToCloseTextBox()
+        {
+            ToCloseTextBox.Add(ToCloseTextBox1);
+            ToCloseTextBox.Add(ToCloseTextBox2);
+            ToCloseTextBox.Add(ToCloseTextBox3);
+            ToCloseTextBox.Add(ToCloseTextBox4);
+            ToCloseTextBox.Add(ToCloseTextBox5);
+            ToCloseTextBox.Add(ToCloseTextBox6);
+            ToCloseTextBox.Add(ToCloseTextBox7);
+        }
 
         private void button1_Click(object sender, EventArgs e)
         {
+            //for (int i = 0; i < timesToClosed.Count - 1; i++)
+            //{
+            //    System.Windows.Forms.Timer t = new System.Windows.Forms.Timer();
+            //    t.Interval = 500;
+            //    t.Tick += (s, args) => t_Tick(timesToClosed[i], ToCloseTextBox[i]);
+            //    TimeSpan ts = timesToClosed[i].Subtract(DateTime.UtcNow);
+            //    ToCloseTextBox[i].ResetText();
+            //    ToCloseTextBox[i].AppendText(ts.ToString("h' : 'm' : 's"));
+            //    t.Start();
+            //}
+            //for (int i = 0; i < timesToOpen.Count; i++)
+            //{
+            //    System.Windows.Forms.Timer t2 = new System.Windows.Forms.Timer();
+            //    t2.Interval = 500;
+            //    t2.Tick += new EventHandler(t_Tick2);
+            //    TimeSpan ts = DateTime.UtcNow.Subtract(timesToOpen[i]);
+            //    ToCloseTextBox1.ResetText();
+            //    ToCloseTextBox1.AppendText(ts.ToString("h' : 'm' : 's"));
+            //    t2.Start();
+            //}
+
             System.Windows.Forms.Timer t = new System.Windows.Forms.Timer();
             t.Interval = 500;
-            t.Tick += new EventHandler(t_Tick);
-            TimeSpan ts = timeToClosed.Subtract(DateTime.UtcNow);
-            textBox2.ResetText();
-            textBox2.AppendText(ts.ToString("h' : 'm' : 's"));
+            t.Tick += (s, args) => t_Tick(timesToClosed.First(), ToCloseTextBox.First());
+            TimeSpan ts = timesToClosed.First().Subtract(DateTime.UtcNow);
+            ToCloseTextBox.First().ResetText();
+            ToCloseTextBox.First().AppendText(ts.ToString("h' : 'm' : 's"));
             t.Start();
 
             System.Windows.Forms.Timer t2 = new System.Windows.Forms.Timer();
             t2.Interval = 500;
             t2.Tick += new EventHandler(t_Tick2);
-            TimeSpan st = timeToOpen.Subtract(DateTime.UtcNow);
-            textBox4.ResetText();
-            textBox4.AppendText(ts.ToString("h' : 'm' : 's"));
+            TimeSpan st = timesToOpen.First().Subtract(DateTime.UtcNow);
+            Timer1.ResetText();
+            ToCloseTextBox1.AppendText(st.ToString("h' : 'm' : 's"));
             t2.Start();
         }
         void t_Tick2(object sender, EventArgs e)
         {
-            textBox4.ResetText();
-            TimeSpan ts = timeToClosed.Subtract(DateTime.UtcNow);
-            textBox4.AppendText(ts.ToString("h' : 'm' : 's"));
+            Timer1.ResetText();
+            TimeSpan ts = timesToOpen.First().Subtract(DateTime.UtcNow);
+            Timer1.AppendText(ts.ToString("h' : 'm' : 's"));
         }
 
-        void t_Tick(object sender, EventArgs e)
+        void t_Tick(DateTime text, TextBox textBox)
         {
-            textBox2.ResetText();
-            TimeSpan ts = timeToClosed.Subtract(DateTime.UtcNow);
-            textBox2.AppendText(ts.ToString("h' : 'm' : 's"));
+            textBox.ResetText();
+            TimeSpan ts = text.Subtract(DateTime.UtcNow);
+            textBox.AppendText(ts.ToString("h' : 'm' : 's"));
         }
 
 
